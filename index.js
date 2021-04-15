@@ -155,7 +155,7 @@ app.get('/logout', (req, res) => {
 
 //LISTENING
 const port=process.env.PORT || 3000;
-var server = app.listen(3000,function(){
+var server = app.listen(port,function(){
     console.log(`listenening on ${port}`);
 });
 
