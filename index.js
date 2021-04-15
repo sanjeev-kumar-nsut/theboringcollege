@@ -154,8 +154,9 @@ app.get('/logout', (req, res) => {
 
 
 //LISTENING
+const port=process.env.PORT || 3000;
 var server = app.listen(3000,function(){
-    console.log('listenening on 3000');
+    console.log(`listenening on ${port}`);
 });
 
 //SOCKET 
