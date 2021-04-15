@@ -1,0 +1,13 @@
+<%- include('partials/head.ejs') %> 
+<%- include('partials/navbar.ejs') %> 
+
+<h1>HELLO <a href="/students/<%= student._id %> "><%=student.name%></a></h1>
+<img src="<%= pic %> ">
+<h2>Year :<%= student.year %> </h2>
+<h2>Branch :<%= student.branch %> </h2>
+<h2>Section :<%= student.section %> </h2>
+<h2>Email : <%= student.email %> </h2>
+<h2>Description :<%= student.description %> </h2>
+<button><a href="/studentedit/<%= student._id %> ">EDIT</a></button>
+<button><a href="/logout">Log out</a></button>
+<%- include('partials/footer.ejs') %> 

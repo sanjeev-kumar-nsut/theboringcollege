@@ -1,0 +1,20 @@
+<%- include('partials/head.ejs') %> 
+<%- include('partials/navbar.ejs') %> 
+
+<h1>THIS IS STUDENTS</h1>
+<ul>
+    <% for(let student of allstudent) { %>
+        <li>Name :<a href="/students/<%= student._id %> "><%=student.name%></a></li>
+        <li>Year : <%= student.year %> </li>
+        <li>Branch :<%= student.branch %> </li>
+        <li>Section :<%= student.section%></li>
+        <li>Email :<%= student.email%></li>
+        <li>Description :<%= student.description%></li>    
+    <% }%> 
+
+    
+
+</ul>
+<button><a href="/students/add">ADD STUDENT</a></button>
+<button><a href="/students/deleteall">DELETE ALL STUDENT</a></button>
+<%- include('partials/footer.ejs') %> 

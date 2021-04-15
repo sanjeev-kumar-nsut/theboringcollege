@@ -1,0 +1,41 @@
+<%- include('partials/head.ejs') %> 
+<%- include('partials/navbar.ejs') %> 
+
+<h1>Message to <%= secondPerson.name %> </h1>
+
+    <label for="from">From : </label>
+    <input type="text" id="from" name="from" placeholder=<%= firstPerson[0].name %> value=<%= firstPerson[0]._id %> >
+    
+    <label for="to">To : </label>
+    <input type="text" id="to" name="to" placeholder=<%= secondPerson.name %> value=<%= secondPerson._id %>> 
+    
+    <label for="message">Message : </label>
+    <input type="text" id="message" name="message" placeholder="message">
+    <button id="send">Send</button>
+
+
+<div id="firstPersonMessages">
+    <h2><%= firstPerson[0].name %> messages </h2>
+<ul id="addFirstPersonMessages">
+    <% for(let mes of firstMessage) { %>
+        <li><%= mes.message %> </li>
+    <% } %>
+</ul>
+</div>
+
+<div id="secondPersonMessages">
+    <h2><%= secondPerson.name %> messages </h2>
+<ul id="addsecondPersonMessages">
+    <% for(let mes of secondMessage) { %>
+        <li><%= mes.message %> </li>
+    <% } %>
+</ul>
+</div>
+
+<button><a href="/students/<%= secondPerson._id %> ">Back</a></button>
+
+
+
+    <script src="https://cdn.socket.io/3.1.1/socket.io.min.js" integrity="sha384-gDaozqUvc4HTgo8iZjwth73C6dDDeOJsAgpxBcMpZYztUfjHXpzrpdrHRdVp8ySO" crossorigin="anonymous"></script>
+    <script src="/js/message.js"></script>
+<%- include('partials/footer.ejs') %> 

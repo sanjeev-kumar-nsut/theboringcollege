@@ -1,0 +1,11 @@
+<%- include('partials/head.ejs') %> 
+<%- include('partials/navbar.ejs') %> 
+
+<h1 class="center"> ANNOUNCEMENTS</h1>
+<button class="center button is-rounded"><a href="/announcements/add">+ ANNOUNCE</a></button>
+<% for(let announcement of announcements) {%>
+    <h2>Author :<%= announcement.author %></h2>
+    <h2>Announcement :<%= announcement.announcement %>  </h2>
+    <% } %> 
+
+<%- include('partials/footer.ejs') %> 

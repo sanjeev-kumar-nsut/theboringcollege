@@ -1,0 +1,21 @@
+<%- include('partials/head.ejs') %> 
+<%- include('partials/navbar.ejs') %> 
+
+<form action="/announcements" method="POST" enctype="multipart/form-data">
+<!--
+<label for="author">AUTHOR : </label>
+<input type="text" id="author" name="author" >
+-->
+<label for="for">For : </label>
+<input type="text" id="for" name="for">
+
+<label for="announcement">Announcement : </label>
+<input type="text" id="announcement" name="announcement">
+
+<label for="file">File : </label>
+<input class="form-control is-rounded"  type="file" name="file" id="file" placeholder="file">
+<button>Submit</button>
+   
+</form>
+
+<%- include('partials/footer.ejs') %> 

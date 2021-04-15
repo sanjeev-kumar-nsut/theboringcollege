@@ -1,0 +1,119 @@
+<%- include('partials/head.ejs') %> 
+<%- include('partials/navbar.ejs') %> 
+<div class="container">
+
+    <h1 class="col-md-auto center">THIS IS NOTES</h1>
+<form action="/notes/add" method="POST" enctype="multipart/form-data">
+
+    <div class="row">
+        
+        <div class="col">
+            <label for="name">Name : </label>
+            <input class="input is-rounded" type="text" id="name" name="name" placeholder="name" max-len>
+   
+        </div>
+    
+       <div class="col-sm-3">
+        <label for="branch">Branch : </label>
+        <input class="input is-rounded"  type="text" id="branch" name="branch" placeholder="branch">
+   
+       </div>
+       <div class="col-sm">
+           
+        <label for="year">Year : </label>
+        <select class="form-select" id="autoSizingSelect" name="year">
+            <option selected>Choose...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+       </div>
+    
+       <div class="col-sm">
+        <label for="file">File : </label>
+        <input class="form-control is-rounded"  type="file" name="file" id="file" placeholder="file">
+   
+       </div> 
+        
+    </div>
+    <button  class="button is-rounded">Submit</button>
+
+</form>
+<br>
+<div id="notescontainer">
+<ul>
+    <% if(firstYearNotes) {%>
+        <h1>1st year notes</h1>
+    <div class="row mb-4 center ml-0 pl-0">
+            <% for(let note of firstYearNotes) {%>
+                <div class="col-sm-3 mb-4 center ml-0 pl-0">
+                    <div class="card" style="width: 18rem; height: 10 rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title"><%=note.name%></h5>
+                          <a href="http://localhost:3000/<%= note.path %>" class="btn btn-primary">DOWNLOAD</a>
+                        </div>
+                      </div>      
+                </div>
+            <% } %>   
+    </div>
+    <% } %>   
+
+    <% if(secondYearNotes!="") {%>
+        <h1>2nd year notes</h1>
+    <div class="row mb-4 center">
+        <% for(let note of secondYearNotes) {%>
+            <div class="col-sm-3 mb-4 center">
+                <div class="card" style="width: 18rem; height: 10 rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"><%=note.name%></h5>
+                      <a href="http://localhost:3000/<%= note.path %>" class="btn btn-primary">DOWNLOAD</a>
+                    </div>
+                  </div>      
+            </div>
+        <% } %>
+    </div>
+    <% } %>
+    <% if(thirdYearNotes!="") {%>
+        <h1>3rd year notes</h1>
+    <div class="row mb-4 center">
+        <% for(let note of thirdYearNotes) {%>
+            <div class="col-sm-3 mb-4 center">
+                <div class="card" style="width: 18rem; height: 10 rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"><%=note.name%></h5>
+                      <a href="http://localhost:3000/<%= note.path %>" class="btn btn-primary">DOWNLOAD</a>
+                    </div>
+                  </div>      
+            </div>
+        <% } %>
+    </div>
+    <% } %>
+    <% if(fourthYearNotes!="") {%>
+        <h1>4th year notes</h1>
+    <div class="row mb-4 center">
+        <% for(let note of fourthYearNotes) {%>
+            <div class="col-sm-3 mb-4 center">
+                <div class="card" style="width: 18rem; height: 10 rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"><%=note.name%></h5>
+                      <a href="http://localhost:3000/<%= note.path %>" class="btn btn-primary">DOWNLOAD</a>
+                    </div>
+                  </div>      
+            </div>
+        <% } %>
+    </div>
+    <% } %>
+</ul>
+</div>
+
+</div>
+<h1>TEST</h1>
+<% for(note of firstYearNotes) { %>
+    <p><%= note.name %> </p>
+    <% } %> 
+<%- include('partials/footer.ejs') %> 
