@@ -1,5 +1,5 @@
 var port = "http://localhost:3000" || "https://theboringcollege.herokuapp.com"; 
-var socket = io.connect(port);
+var socket = io.connect("https://theboringcollege.herokuapp.com");
 var message = document.getElementById('message'),
       from = document.getElementById('from'),
       to = document.getElementById('to'),
