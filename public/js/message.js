@@ -1,11 +1,11 @@
-var socket = io.connect('http://localhost:3000');
+var port = "http://localhost:3000" || "https://theboringcollege.herokuapp.com"; 
+var socket = io.connect(port);
 var message = document.getElementById('message'),
       from = document.getElementById('from'),
       to = document.getElementById('to'),
       btn = document.getElementById('send');
-      firstPersonMessages = document.getElementById('firstPersonMessages'),
-      secondPersonMessages = document.getElementById('secondPersonMessages');
-
+      chatwindow = document.getElementById('chatWindow');
+      
 // Emit events
 btn.addEventListener('click', function(){
     socket.emit('chat', {
@@ -22,11 +22,19 @@ socket.on('chat', function(data){
     
     if(data.from==from.value && data.to==to.value)
     {
-        firstPersonMessages.innerHTML += '<li>'+ data.message + '</li>';
+        
+        var firstPersonMessages = document.createElement("div");
+        firstPersonMessages.setAttribute("class","firstuser button is-rounded");
+        firstPersonMessages.innerHTML = '<p>'+ data.message + '</p>';
+        chatwindow.appendChild(firstPersonMessages);
+        
     }
     else if(data.from==to.value && data.to==from.value)
     {
-        secondPersonMessages.innerHTML += '<li>'+ data.message + '</li>';
+        var secondPersonMessages = document.createElement("div");
+        secondPersonMessages.setAttribute("class","seconduser button is-rounded");
+        secondPersonMessages.innerHTML = '<p>'+ data.message + '</p>';
+        chatwindow.appendChild(secondPersonMessages);
     }
 
 });

@@ -13,8 +13,11 @@
     <li>Description : <%= findstudent.description %></li>
 </ul>
 
-<button><a href="/students/edit/<%= findstudent._id %> ">EDIT</a></button>
-<button><a href="/message/<%= findstudent._id %>">MESSAGE</a></button>
-<button><a href="/">HOME</a></button>
-<button><a href="/students">BACK</a></button>
+<div>
+    <button><a href="/students/edit/<%= findstudent._id %> ">EDIT</a></button>
+    <button><a href="/message/<%= findstudent._id %>">MESSAGE</a></button>
+    <button><a href="/students/delete/<%= findstudent._id %> ">DELETE</a></button>
+    <button><a href="/">HOME</a></button>
+    <button><a href="/students">BACK</a></button>
+</div>
 <%- include('partials/footer.ejs') %> 

@@ -19,11 +19,13 @@ const isLoggedIn = (req, res, next) => {
 router.get('/:id',isLoggedIn,async(req,res) => {
     const id = req.params.id;
     const secondPerson = await Student.findById(id);
-    const firstPerson = await Student.find({email:currentUserEmail});
-    const firstMessage = await Messages.find({from:firstPerson[0]._id,to:secondPerson._id});
-    const secondMessage = await Messages.find({from:id,to:firstPerson[0]._id});
-    
-    res.render('message',{firstPerson,secondPerson,firstMessage,secondMessage});
+    const [firstPerson] = await Student.find({email:currentUserEmail}).populate('message');
+    jsonObject = firstPerson.contact.map(JSON.stringify);
+    console.log(jsonObject);
+    uniqueSet = new Set(jsonObject);
+    uniqueArray = Array.from(uniqueSet).map(JSON.parse);
+    const contacts = uniqueArray
+   res.render('message',{firstPerson,secondPerson,contacts})
 })
 
 //EXPORT

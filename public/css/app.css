@@ -1,21 +1,21 @@
 body{
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url("https://images.shiksha.com/mediadata/images/articles/1599038395phpImfPh0.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat:unset;
-    background-attachment: scroll;
     
 }
 nav{
-    border-bottom: 2px solid black;;
+   
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: black;
+    margin-bottom: 0.5rem;
 }
 
 .button{
     margin-left:2rem;
 }
-
+.button:hover{
+    color: white;
+    background-color: rgb(0, 102, 255);
+}
 .pagecontainer{
     display:flex;
     align-items: center;
@@ -29,22 +29,66 @@ nav{
     justify-content: center;
 }
 h1{
-    color:white;
+    color:black;
 }
 li{
-    color:white;
+    color:black;
 }
 a{
     text-decoration: none;
+    color: black;
+   
 }
+
 .center{
     text-align: center;
 }
 label{
     text-align: center;
-    color: white;
+    color: black;
 }
 #notesform{
     display:flex;
     flex-direction: row;
+}
+.card{
+    border:0.1rem solid rgb(17, 221, 248);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+.card:hover{
+    box-shadow: 0 4px 8px 0 rgba(17, 221, 248, 0.2), 0 6px 20px 0 rgba(17,221,248, 0.19);
+}
+.bottom-left{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(230, 233, 233, 0.664);
+    color: black;
+    text-align: center;
+}
+#chatWindow{
+    border:0.2px solid rgb(17, 221, 248);
+}
+.firstuser{
+    color:white;
+    background-color: rgb(0, 102, 255);
+    width:fit-content;
+    float: right;
+    clear: both;
+    text-align: center;
+    display: block;
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+.seconduser{
+    color:black;
+    width: fit-content;
+    float: left;
+    clear: both;
+    display: block;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    text-align: center;
 }

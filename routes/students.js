@@ -9,33 +9,54 @@ const Student = require('../models/student');
 
 router.get('/',async(req,res) => {
     const allstudent = await Student.find();
-    res.render('students',{ allstudent });
+    var firstyear = [];
+    var secondyear = [];
+    var thirdyear = [];
+    var fourthyear = [];
+    for(let student of allstudent)
+    {
+        if(student.year==1)
+        firstyear = [...firstyear,student];
+        else if(student.year==2)
+        secondyear = [...secondyear,student];
+        else if(student.year==3)
+        thirdyear = [...thirdyear,student];
+        else
+        fourthyear = [...fourthyear,student];
+    }
+    
+    res.render('students',{ firstyear,secondyear,thirdyear,fourthyear });
 })
-router.post('/',async(req,res) => {
-    const newstudent = new Student(req.body);
-    await newstudent.save();
-    res.redirect('/students');
-})
+//router.post('/',async(req,res) => {
+//    const newstudent = new Student(req.body);
+//    await newstudent.save();
+//    res.redirect('/students');
+//})
 router.get('/:id',async(req,res) => {
     const id = req.params.id;
     const findstudent = await Student.findById(id);
     res.render('studentprofile',{findstudent});
 })
-router.get('/add',(req,res) => {
-    res.render('addstudent');
-})
-router.get('/deleteall',async(req,res) => {
-    await Student.deleteMany();
-    const allstudent = await Student.find();
-    res.render('students',{ allstudent });
+
+router.get('/delete/:id',async(req,res) => {
+    try{
+        const id=req.params.id;
+        const temp=await Student.findByIdAndDelete(id);
+        
+    res.redirect('/students');
+    }catch(err){
+        res.send(err);
+    }
+
 })
 
 router.get('/edit/:id',async(req,res) => {
     const id = req.params.id;
-    res.render('studentedit',{id});
+    const stud = await Student.findById(id);
+    res.render('studentedit',{id,stud});
 })
 
-router.post('/students/:id',async(req,res) => {
+router.post('/:id',async(req,res) => {
     try{
     const id = req.params.id;
     const update = req.body;
