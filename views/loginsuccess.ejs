@@ -1,6 +1,8 @@
 <%- include('partials/head.ejs') %> 
 <%- include('partials/navbar.ejs') %> 
 
+<div class="text-center">
+    
 <h1>HELLO <a href="/students/<%= student._id %> "><%=student.name%></a></h1>
 <img src="<%= pic %> ">
 <h2>Year :<%= student.year %> </h2>
@@ -10,4 +12,6 @@
 <h2>Description :<%= student.description %> </h2>
 <button><a href="/students/edit/<%= student._id %> ">EDIT</a></button>
 <button><a href="/logout">Log out</a></button>
+</div>
+
 <%- include('partials/footer.ejs') %> 

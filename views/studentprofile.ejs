@@ -1,10 +1,11 @@
 <%- include('partials/head.ejs') %> 
 <%- include('partials/navbar.ejs') %> 
 
-<h1>Student Profile</h1>
+<div class="text-center">
+    <h1>Student Profile</h1>
 <ul>
     
-    <li>ID : <%= findstudent._id %> </li>
+    <!--<li>ID : <%= findstudent._id %> </li>-->
     <li>Name : <%= findstudent.name %></li>
     <li>Year : <%= findstudent.year %> </li>
     <li>Branch : <%= findstudent.branch %></li>
@@ -19,5 +20,6 @@
     <button><a href="/students/delete/<%= findstudent._id %> ">DELETE</a></button>
     <button><a href="/">HOME</a></button>
     <button><a href="/students">BACK</a></button>
+</div>
 </div>
 <%- include('partials/footer.ejs') %> 

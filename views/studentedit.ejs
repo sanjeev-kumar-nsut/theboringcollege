@@ -1,20 +1,22 @@
 <%- include('partials/head.ejs') %> 
 <%- include('partials/navbar.ejs') %> 
 
-<form action="/students/<%= id %> " method="POST">
-<label for="name">Name : </label>
-<input type="text" id="name" name="name" placeholder="<%= stud.name %>" value=<%= stud.name %>>
-<label for="year">Year : </label>
-<input type="text" id="year" name="year" placeholder="<%= stud.year %>" value=<%= stud.year %>>
-<label for="branch">Branch : </label>
-<input type="text" id="branch" name="branch" placeholder="<%= stud.branch %>" value=<%= stud.branch %>>
-<label for="section" id="section" placeholder="section">Section : </label>
-<input type="text" id="section" name="section" placeholder="<%= stud.section %>" value=<%= stud.section %>>
-<label for="email" id="email" placeholder="email">Email : </label>
-<input type="text" id="email" name="email" placeholder="<%= stud.email %>" value=<%= stud.email %>>
-<label for="description" id="description" placeholder="description">Description : </label>
-<input type="text" id="description" name="description" placeholder="<%= stud.description %>" value=<%= stud.description %>>
-<button>SAVE</button>
-</form>
-
+<div class="text-center">
+    <form action="/students/<%= id %> " method="POST" style="display: block;">
+        <label for="name">Name : </label>
+        <input type="text" id="name" name="name" placeholder="<%= stud.name %>" value=<%= stud.name %>>
+        <label for="year">Year : </label>
+        <input type="text" id="year" name="year" placeholder="<%= stud.year %>" value=<%= stud.year %>>
+        <label for="branch">Branch : </label>
+        <input type="text" id="branch" name="branch" placeholder="<%= stud.branch %>" value=<%= stud.branch %>>
+        <label for="section" id="section" placeholder="section">Section : </label>
+        <input type="text" id="section" name="section" placeholder="<%= stud.section %>" value=<%= stud.section %>>
+        <label for="email" id="email" placeholder="email">Email : </label>
+        <input type="text" id="email" name="email" placeholder="<%= stud.email %>" value=<%= stud.email %>>
+        <label for="description" id="description" placeholder="description">Description : </label>
+        <input type="text" id="description" name="description" placeholder="<%= stud.description %>" value=<%= stud.description %>>
+        <button>SAVE</button>
+        </form>
+        
+</div>
 <%- include('partials/footer.ejs') %> 

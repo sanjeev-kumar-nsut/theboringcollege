@@ -1,11 +1,12 @@
 body{
     height: 100vh;
-    
+   /* background-image:url("http://localhost:3000/background/bg2.jpg");*/
+background-repeat: no-repeat;
+background-size:contain;
+background-attachment: fixed;
 }
 nav{
-   
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    color: black;
+       color: black;
     margin-bottom: 0.5rem;
 }
 
@@ -69,7 +70,7 @@ label{
     text-align: center;
 }
 #chatWindow{
-    border:0.2px solid rgb(17, 221, 248);
+    
 }
 .firstuser{
     color:white;
@@ -91,4 +92,10 @@ label{
     margin-bottom: 1px;
     margin-top: 1px;
     text-align: center;
+}
+.label{
+    display: block;
+}
+.input{
+    display: block;
 }

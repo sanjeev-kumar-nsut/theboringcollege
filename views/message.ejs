@@ -4,16 +4,13 @@
 <!--<h1 class="text-center" ><%= secondPerson.name %> </h1>
 <button><a href="/students/<%= secondPerson._id %> ">Back</a></button>
 -->
-<div class="container">
-    <div class="row" style="max-height: 80%;overflow: auto;">
-        <div class="col-4" style="overflow: auto;height: 80%;">
-        <p><%=contacts%></p>
-        <% for(const entry of contacts){%>
-            <p><a href="/students/<%= entry.sId %> "><%=entry.sName%></a></p>
-        <%}%>
+<div class="container" style="margin-left: 0;margin-right: 0;padding-right: 0;">
+    <div class="row" style="max-height: 80vh;overflow: auto;margin-left: 0;margin-right: 0;padding-right: 0;">
+        <div class="col-2" style="overflow: auto;min-height: 80vh;margin-left:0">
+       
         </div>
-        <div class="col-8">
-            <div style="overflow: auto; height: 80%;">   
+        <div class="col">
+            <div style="overflow: auto; min-height: 80vh;margin-right: 0;padding-right: 0;border: 2px solid black;">   
                
                 <div id="chatWindow" style="display: block;">
                 <% for(let mes of firstPerson.message) {%>

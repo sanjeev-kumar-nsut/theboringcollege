@@ -15,17 +15,8 @@ const studentSchema = new Schema({
             type:Schema.Types.ObjectId,
             ref:'Messages'
         }
-    ],
-    contact:[
-        {
-            sId:{
-                type:String,            
-            },
-            sName:{
-                type:String,
-                }
-        }
     ]
+    
 });
 
 const Student = mongoose.model('student',studentSchema);

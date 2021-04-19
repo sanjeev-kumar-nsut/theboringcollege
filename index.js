@@ -172,33 +172,6 @@ io.on('connection',function(socket){
          stud.message.push(message);
          const stud2 = await Student.findById(data.to);
          stud2.message.push(message);
-         var cont = {sId:data.to,sName:stud2.name};
-         //stud.contact.push(cont);
-         var found = 0;
-         for(const entry of stud.contact){
-             if(entry.sId===data.to){
-                 found=1;
-             }
-         }
-         if(found===0){
-             stud.contact.push(data.to);
-         }
-         cont = {sId:data.from,sName:stud.name};
-         //stud2.contact.push(cont);
-         found=0;
-         for(const entry of stud2.contact){
-            if(entry.sId===data.from){
-                found=1;
-            }
-        }
-        if(found===0){
-            stud2.contact.push(data.from);
-        }
-         console.log("**********")
-         console.log(stud);
-         console.log("***********");
-         console.log(stud2);
-          //stud.contact.push({to,toname});
          await stud.save();
          await stud2.save();
          await message.save();
