@@ -1,0 +1,15 @@
+<%- include('partials/head.ejs') %> 
+<%- include('partials/navbar.ejs') %> 
+
+<h1 class="text-center">Ask question</h1>
+<form action="/questions" method="POST" >
+    <label for="author" >Name :</label>
+    <input name="author" type="text" id="author"  placeholder=<%= firstPerson._id %> value=<%= firstPerson._id %>> 
+    <label for="branch">Branch :</label>
+    <input type="text" name="branch" id="branch" >
+    <label for="question">Question :</label>
+    <textarea id="question" name="question" rows="4" cols="50"></textarea>
+    <input type="text" name="date" id="date"  placeholder=<%= date %> value=<%=date%> >
+    <button>Post</button>
+
+<%- include('partials/footer.ejs') %> 

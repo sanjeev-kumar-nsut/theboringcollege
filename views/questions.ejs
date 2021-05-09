@@ -1,0 +1,17 @@
+<%- include('partials/head.ejs') %> 
+<%- include('partials/navbar.ejs') %> 
+
+<h1 class="text-center">Questions</h1>
+<h2 style="color: black;"><a href="questions/add">Ask question</a></h2>
+<% for(q of question) {%>
+    <a href="/questions/<%= q._id %> ">
+        <div>
+            <p><%= q.author %> </p>
+            <p><%= q.branch %></p>
+            <p><%= q.date %> </p>
+            <p><%= q.question %> </p>
+        </div>
+    </a>
+    <% } %>  
+
+<%- include('partials/footer.ejs') %> 

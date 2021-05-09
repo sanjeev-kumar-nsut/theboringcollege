@@ -1,0 +1,25 @@
+<%- include('partials/head.ejs') %> 
+<%- include('partials/navbar.ejs') %> 
+
+<h2>Question</h2>
+
+<p><%= question.author %> </p>
+<p><%= question.branch %> </p>
+<p><%= question.date %> </p>
+<p><%= question.question %> </p>
+
+<h2>Answer</h2>
+<% for(ans of question.answer) {%>
+    <p>hello</p>
+    <p><%= ans.author %> </p>
+    <p><%= ans.date %> </p>
+    <p><%= ans.answer %> </p>
+    <% } %>  
+<form action="/answers/<%= question._id %>" method ="POST">
+    <input type="text" name="author" id="author" value=<%= firstPerson._id%> placeholder=<%= firstPerson.name %>>
+    <label for="answer"></label>
+    <textarea id="answer" name="answer" rows="4" cols="50"> </textarea>
+    <input type="text" name="date" id="date"  placeholder=<%= date %> value=<%=date%> >
+    <button>Post</button>  
+</form> 
+<%- include('partials/footer.ejs') %> 

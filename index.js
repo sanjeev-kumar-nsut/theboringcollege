@@ -89,7 +89,8 @@ const notesRoutes = require('./routes/notes');
 const studentsRoutes = require('./routes/students');
 const announcementsRoutes = require('./routes/announcements');
 const messageRoutes = require('./routes/message');
-
+const questionsRoutes = require('./routes/questions');
+const answersRoutes = require('./routes/answers');
 
 
 
@@ -109,7 +110,13 @@ app.use('/announcements',announcementsRoutes);
  //MESSAGE
  app.use('/message',isLoggedIn,messageRoutes);
 
-//LOGIN
+ //QUESTIONS
+ app.use('/questions',isLoggedIn,questionsRoutes);
+
+//ANSWERS
+app.use('/answers',isLoggedIn,answersRoutes);
+
+ //LOGIN
 app.get('/login',(req,res) => {
     console.log(req.user);
     res.render('login');
