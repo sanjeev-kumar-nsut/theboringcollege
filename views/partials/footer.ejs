@@ -1,2 +1,12 @@
+><script>
+    $(function () {
+    $(document).scroll(function () {
+        var $nav = $(".navbar-fixed-top");
+        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+      const name = document.getElementById("logo");
+      name.innerText = "THE BORING COLLEGE";
+      });
+  });
+</script>
 </body>
 </html>

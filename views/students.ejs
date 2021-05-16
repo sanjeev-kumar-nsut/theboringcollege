@@ -1,55 +1,52 @@
-<%- include('partials/head.ejs') %> 
+<%- include('partials/head1.ejs') %>
+<%- include('partials/head2.ejs') %> 
 <%- include('partials/navbar.ejs') %> 
 
-<h1 class="text-center">All College Students Are Here</h1>
+<h1 class="text-center"></h1>
 <ul>
     <div class="container">
         <div class="row g-2">
             <div class="col-6">
                 <div class="card p-3" style="width: 30rem;">
                     <div class="card-body">
-                      <h5 class="card-title">1st year</h5>
+                      <h2 class="card-title" style=" font-family: 'Bungee', cursive;">1st year</h2>
                       <% for(let student of firstyear) {%>
-                        <li><a href="/students/<%= student._id %> "><%=student.name%></a></li>
+                        <li style="font-family: 'Merriweather', serif;"><a href="/students/<%= student._id %> "><%=student.name%></a></li>
                         <% } %>  
-                       <a href="#" class="btn btn-primary center">View all 1st year students</a>
-                    </div>
+                        </div>
                   </div>
             </div>
 
             <div class="col-6">
                 <div class="card p-3" style="width: 30rem;">
                     <div class="card-body">
-                      <h5 class="card-title">2nd year</h5>
+                      <h2 class="card-title" style=" font-family: 'Bungee', cursive;">2nd year</h2>
                       <% for(let student of secondyear) {%>
-                        <li><a href="/students/<%= student._id %> "><%=student.name%></a></li>
+                        <li style="font-family: 'Merriweather', serif;"><a href="/students/<%= student._id %> "><%=student.name%></a></li>
                         <% } %>  
-                       <a href="#" class="btn btn-primary center">View all 2nd year students</a>
-                    </div>
+                      </div>
                   </div>
             </div>
 
             <div class="col-6">
                 <div class="card p-3" style="width: 30rem;">
                     <div class="card-body">
-                      <h5 class="card-title">3rd year</h5>
+                      <h2 class="card-title" style=" font-family: 'Bungee', cursive;">3rd year</h2>
                       <% for(let student of thirdyear) {%>
-                        <li><a href="/students/<%= student._id %> "><%=student.name%></a></li>
+                        <li style="font-family: 'Merriweather', serif;"><a href="/students/<%= student._id %> "><%=student.name%></a></li>
                         <% } %>  
-                       <a href="#" class="btn btn-primary center">View all 3rd year students</a>
-                    </div>
+                      </div>
                   </div>
             </div>
 
             <div class="col-6">
                 <div class="card p-3" style="width: 30rem;">
                     <div class="card-body">
-                      <h5 class="card-title">4th year</h5>
+                      <h2 class="card-title" style=" font-family: 'Bungee', cursive;">4th year</h2>
                       <% for(let student of fourthyear) {%>
-                        <li><a href="/students/<%= student._id %> "><%=student.name%></a></li>
+                        <li style="font-family: 'Merriweather', serif;"><a href="/students/<%= student._id %> "><%=student.name%></a></li>
                         <% } %>  
-                       <a href="#" class="btn btn-primary center">View all 4th year students</a>
-                    </div>
+                      </div>
                   </div>
             </div>
         </div>
