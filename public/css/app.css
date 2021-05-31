@@ -1,11 +1,12 @@
 body{
     height: 100vh;
-    background-image:url("/background/bg.jpg");
-background-repeat: no-repeat;
-background-size:contain;
-background-attachment: fixed;
-background-position: right;
+    background-image:url("/background/white.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    font-family: 'Merriweather', serif;
+    background-attachment: fixed;
 }
+
 .navbar-fixed-top.scrolled {
     background-color: #fff !important;
     transition: background-color 200ms linear;
@@ -80,14 +81,7 @@ label{
     display:flex;
     flex-direction: row;
 }
-.card{
-    border:0.1rem solid rgb(17, 221, 248);
-    border-radius: 0.5rem;
-    text-align: center;
-}
-.card:hover{
-    box-shadow: 0 4px 8px 0 rgba(17, 221, 248, 0.2), 0 6px 20px 0 rgba(17,221,248, 0.19);
-}
+
 .bottom-left{
     position: fixed;
     left: 0;
@@ -126,15 +120,4 @@ label{
 }
 .input{
     display: block;
-}
-
-.flextest{
-    margin-left: 50px;
-    width:500px;
-    height:500px;
-    background-color: burlywood;
-    display: flex;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items: flex-start;
 }

@@ -1,4 +1,11 @@
-
+body{
+    height: 100vh;
+    background-image:url("/background/bg.jpg");
+background-repeat: no-repeat;
+background-size:contain;
+background-attachment: fixed;
+background-position: right;
+}
 .container-fluid{
     width: 100%;
  

@@ -1,0 +1,20 @@
+.main{
+    margin-top: 4rem;
+}
+.google{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.google img{
+    height:3rem;
+    width:3rem;
+    margin-right: 1rem;
+}
+.wrap{
+    background-color: white;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+}

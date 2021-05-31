@@ -1,58 +1,53 @@
 <%- include('partials/head1.ejs') %>
+<link rel="stylesheet" href="/css/students.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
 <%- include('partials/head2.ejs') %> 
 <%- include('partials/navbar.ejs') %> 
-
-<h1 class="text-center"></h1>
-<ul>
-    <div class="container">
-        <div class="row g-2">
-            <div class="col-6">
-                <div class="card p-3" style="width: 30rem;">
-                    <div class="card-body">
-                      <h2 class="card-title" style=" font-family: 'Bungee', cursive;">1st year</h2>
-                      <% for(let student of firstyear) {%>
-                        <li style="font-family: 'Merriweather', serif;"><a href="/students/<%= student._id %> "><%=student.name%></a></li>
-                        <% } %>  
-                        </div>
-                  </div>
-            </div>
-
-            <div class="col-6">
-                <div class="card p-3" style="width: 30rem;">
-                    <div class="card-body">
-                      <h2 class="card-title" style=" font-family: 'Bungee', cursive;">2nd year</h2>
-                      <% for(let student of secondyear) {%>
-                        <li style="font-family: 'Merriweather', serif;"><a href="/students/<%= student._id %> "><%=student.name%></a></li>
-                        <% } %>  
-                      </div>
-                  </div>
-            </div>
-
-            <div class="col-6">
-                <div class="card p-3" style="width: 30rem;">
-                    <div class="card-body">
-                      <h2 class="card-title" style=" font-family: 'Bungee', cursive;">3rd year</h2>
-                      <% for(let student of thirdyear) {%>
-                        <li style="font-family: 'Merriweather', serif;"><a href="/students/<%= student._id %> "><%=student.name%></a></li>
-                        <% } %>  
-                      </div>
-                  </div>
-            </div>
-
-            <div class="col-6">
-                <div class="card p-3" style="width: 30rem;">
-                    <div class="card-body">
-                      <h2 class="card-title" style=" font-family: 'Bungee', cursive;">4th year</h2>
-                      <% for(let student of fourthyear) {%>
-                        <li style="font-family: 'Merriweather', serif;"><a href="/students/<%= student._id %> "><%=student.name%></a></li>
-                        <% } %>  
-                      </div>
-                  </div>
-            </div>
+ 
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+                  <div class="studentslide">
+                    <h1>1st Year Students</h1>
+                    <% for(let student of firstyear) {%>
+                      <li style="font-family: 'Merriweather', serif;"><a href="/students/<%= student._id %> "><%=student.name%></a></li>
+                    <% } %> 
+                  </div> 
         </div>
+        <div class="carousel-item">
+                  <div class="studentslide">
+                    <h1>2nd Year Students</h1>
+                  <% for(let student of secondyear) {%>
+                    <li style="font-family: 'Merriweather', serif;"><a href="/students/<%= student._id %> "><%=student.name%></a></li>
+                  <% } %>
+                  </div>  
+        </div>
+        <div class="carousel-item">
+                  <div class="studentslide">
+                    <h1>3rd Year Students</h1>
+                  <% for(let student of thirdyear) {%>
+                    <li style="font-family: 'Merriweather', serif;"><a href="/students/<%= student._id %> "><%=student.name%></a></li>
+                  <% } %>
+                  </div>  
+        </div>
+        <div class="carousel-item">
+                  <div class="studentslide">
+                    <h1>4th Year Students</h1>
+                  <% for(let student of fourthyear) {%>
+                    <li style="font-family: 'Merriweather', serif;"><a href="/students/<%= student._id %> "><%=student.name%></a></li>
+                  <% } %>
+                  </div>  
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
     
-    
 
-</ul>
 <%- include('partials/footer.ejs') %> 
