@@ -1,21 +1,29 @@
-<nav class="navbar  navbar-light bg-transparent sticky-top navbar-expand-lg  ">
+<nav class="navbar  navbar-light bg-transparent sticky-top navbar-fixed-top navbar-expand-lg  ">
     <div class="container-fluid">
-      <a class="navbar-brand " id="logo" href="/"><img src="/background/logo2.png" alt="logo"></a>
+      <div class="logo">
+      <a href="/"><img  src="/background/logo2.png" alt="logo" href="/" class="logoimage" ></a>
+      </div>
+      
+      <div class="navbarContent">
       <button class="navbar-toggler" type="button" style="color: black;" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-between " id="navbarSupportedContent">
+      <div class="collapse navbar-collapse  " >
         <ul class="navbar-nav mb-2  " style="margin-left: auto;">
             <!--<a class="nav-link active" aria-current="page" href="/">Home</a>-->
             <!--<a class="nav-link" href="/notes">Notes</a>-->
             <!--<a class="nav-link" href="/announcements">Announcements</a>-->
             <a class="button is-rounded" href="/students">Students</a>
             <a class="button is-rounded" href="/questions">Questions</a>
+            <%if(islogin=="1"){%>
             <a class="button is-rounded" href="/loginsuccess">MY PROFILE</a>
+            <% } else { %> 
             <a class="button is-rounded" href="/login">LOGIN</a>
+            <% } %> 
         </ul>
         
       
+      </div>
       </div>
     </div>
   </nav>

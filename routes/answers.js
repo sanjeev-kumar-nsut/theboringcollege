@@ -14,6 +14,7 @@ const isLoggedIn = (req, res, next) => {
         currentUserEmail = req.user.emails[0].value;
         next();
     } else {
+        var islogin = JSON.stringify(0);
         res.render('loginfailed');
     }
 }
@@ -26,6 +27,9 @@ router.post('/:id',isLoggedIn,async(req,res)=>{
     question.answer.push(ans);
     await question.save();
     console.log('added successfully');
+    var islogin = JSON.stringify(0);
+    if(req.user)
+    islogin = JSON.stringify(1);
     res.redirect(`/questions/${id}`);
 })
 

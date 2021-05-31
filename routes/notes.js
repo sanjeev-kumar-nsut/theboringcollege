@@ -15,7 +15,10 @@ router.get('/',async(req,res) => {
     const secondYearNotes = await Notes.find({year:'2'});
     const thirdYearNotes = await Notes.find({year:'3'});
     const fourthYearNotes = await Notes.find({year:'4'});
-    res.render('notes',{ firstYearNotes,secondYearNotes,thirdYearNotes,fourthYearNotes });
+    var islogin = JSON.stringify(0);
+    if(req.user)
+    islogin = JSON.stringify(1);
+    res.render('notes',{ firstYearNotes,secondYearNotes,thirdYearNotes,fourthYearNotes,islogin });
 })
 router.post('/add',upload.single('file'),async(req,res) => {
     const addnotes = new Notes(req.body);

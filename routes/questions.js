@@ -12,14 +12,17 @@ const isLoggedIn = (req, res, next) => {
         currentUserEmail = req.user.emails[0].value;
         next();
     } else {
-        res.render('loginfailed');
+        var islogin = JSON.stringify(0);
+        res.redirect('loginfailed');
     }
 }
 
 router.get('/',isLoggedIn,async(req,res) => {
     const question = await Questions.find();
     console.log(question);
-    res.render('questions',{question});
+    
+    var islogin = JSON.stringify(1);
+    res.render('questions',{question,islogin});
 })
 router.post('/',async(req,res)=>{
     const question = new Questions(req.body);
@@ -35,7 +38,9 @@ router.get('/add',isLoggedIn,async(req,res) => {
     a = d.getMonth()+1;
     var b = d.getFullYear();
     date = 	date +"/"+ a.toString() +"/"+ b.toString();
-    res.render('questionsadd',{firstPerson,date});
+    
+    var islogin = JSON.stringify(1);
+    res.render('questionsadd',{firstPerson,date,islogin});
 })
 router.get('/:id',isLoggedIn,async(req,res) => {
     try{
@@ -48,8 +53,9 @@ router.get('/:id',isLoggedIn,async(req,res) => {
         a = d.getMonth()+1;
         var b = d.getFullYear();
         date = 	date +"/"+ a.toString() +"/"+ b.toString();
-      
-        res.render('questionsid',{question,date,firstPerson});
+        
+        var islogin = JSON.stringify(1);
+        res.render('questionsid',{question,date,firstPerson,islogin});
         }catch(err){
             console.log(err);
         }

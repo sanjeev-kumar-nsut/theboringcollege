@@ -12,6 +12,7 @@ const isLoggedIn = (req, res, next) => {
         currentUserEmail = req.user.emails[0].value;
         next();
     } else {
+        var islogin = JSON.stringify(0);
         res.render('loginfailed');
     }
 }
@@ -21,7 +22,10 @@ router.get('/:id',isLoggedIn,async(req,res) => {
     const secondPerson = await Student.findById(id);
     const [firstPerson] = await Student.find({email:currentUserEmail}).populate('message');
 
-   res.render('message',{firstPerson,secondPerson})
+    var islogin = JSON.stringify(0);
+    if(req.user)
+    islogin = JSON.stringify(1);
+   res.render('message',{firstPerson,secondPerson,islogin})
 })
 
 //EXPORT

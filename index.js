@@ -73,7 +73,8 @@ const isLoggedIn = (req, res, next) => {
         currentUserEmail = req.user.emails[0].value;
         next();
     } else {
-        res.render('loginfailed');
+        var islogin = JSON.stringify(0);
+        res.render('loginfailed',{islogin});
     }
 }
 
@@ -119,7 +120,10 @@ app.use('/answers',isLoggedIn,answersRoutes);
  //LOGIN
 app.get('/login',(req,res) => {
     console.log(req.user);
-    res.render('login');
+    var islogin = JSON.stringify(0);
+    if(req.user)
+    islogin = JSON.stringify(1);
+    res.render('login',{islogin});
 })
 // Auth Routes
 app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
@@ -127,6 +131,9 @@ app.get('/google', passport.authenticate('google', { scope: ['profile', 'email']
 app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/loginfailed' }),
   function(req, res) {
     // Successful authentication, redirect home.
+    var islogin = JSON.stringify(0);
+    if(req.user)
+    islogin = JSON.stringify(1);
     res.redirect('/loginsuccess');
   }
 );
@@ -136,25 +143,29 @@ app.get('/loginsuccess', isLoggedIn, async(req, res) =>{
     const name = req.user.displayName;
     const email = req.user.emails[0].value;
     let [ student ]= await Student.find({email:currentUserEmail});
-    
+    var islogin = JSON.stringify(0);
+    if(req.user)
+    islogin = JSON.stringify(1);
     if(student==undefined)
     {
         student = new Student({name,email});
         await student.save();
-        res.render('loginsuccess',{pic:req.user.photos[0].value,student});
+        res.render('loginsuccess',{pic:req.user.photos[0].value,student,islogin});
     }
     else{
-        res.render('loginsuccess',{pic:req.user.photos[0].value,student});
+        res.render('loginsuccess',{pic:req.user.photos[0].value,student,islogin});
     }
    // res.render("loginsuccess",{name:req.user.displayName,pic:req.user.photos[0].value,email:req.user.emails[0].value})
    // res.render('loginsuccess',{pic:req.user.photos[0].value,student});
 })
 app.get('/loginfailed',(req,res) => {
-    res.render('loginfailed');
+    var islogin = JSON.stringify(0);
+    res.render('loginfailed',{islogin});
 })
 app.get('/logout', (req, res) => {
     req.session = null;
     currentUserEmail=null;
+    var islogin = JSON.stringify(0);
     req.logout();
     res.redirect('/');
 })

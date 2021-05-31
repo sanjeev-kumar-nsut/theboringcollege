@@ -7,6 +7,7 @@ const router = express.Router();
 const Student = require('../models/student');
 
 
+
 router.get('/',async(req,res) => {
     const allstudent = await Student.find();
     var firstyear = [];
@@ -24,8 +25,10 @@ router.get('/',async(req,res) => {
         else
         fourthyear = [...fourthyear,student];
     }
-    
-    res.render('students',{ firstyear,secondyear,thirdyear,fourthyear });
+    var islogin = JSON.stringify(0);
+    if(req.user)
+    islogin = JSON.stringify(1);
+    res.render('students',{ firstyear,secondyear,thirdyear,fourthyear,islogin });
 })
 //router.post('/',async(req,res) => {
 //    const newstudent = new Student(req.body);
@@ -35,12 +38,18 @@ router.get('/',async(req,res) => {
 router.get('/:id',async(req,res) => {
     const id = req.params.id;
     const findstudent = await Student.findById(id);
-    res.render('studentprofile',{findstudent});
+    var islogin = JSON.stringify(0);
+    if(req.user)
+    islogin = JSON.stringify(1);
+    res.render('studentprofile',{findstudent,islogin});
 })
 
 router.get('/delete/:id',async(req,res) => {
     try{
         const id=req.params.id;
+        var islogin = JSON.stringify(0);
+    if(req.user)
+    islogin = JSON.stringify(1);
         const temp=await Student.findByIdAndDelete(id);
         
     res.redirect('/students');
@@ -53,7 +62,10 @@ router.get('/delete/:id',async(req,res) => {
 router.get('/edit/:id',async(req,res) => {
     const id = req.params.id;
     const stud = await Student.findById(id);
-    res.render('studentedit',{id,stud});
+    var islogin = JSON.stringify(0);
+    if(req.user)
+    islogin = JSON.stringify(1);
+    res.render('studentedit',{id,stud,islogin});
 })
 
 router.post('/:id',async(req,res) => {
@@ -64,6 +76,7 @@ router.post('/:id',async(req,res) => {
     const student = await Student.findByIdAndUpdate(id,update,{new:true});
     await student.save();
     console.log(student);
+    
     res.redirect(`/students/${id}`); 
     }catch(err){
         console.log(err);
