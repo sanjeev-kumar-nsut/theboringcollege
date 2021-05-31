@@ -18,6 +18,13 @@
     text-decoration: none;
     padding-left: 15rem;
     font-size: 1.5rem;
+    color: black !important;
+}
+.studentslide a{
+    color: black;
+}
+.studentslide a:hover{
+    color: rgb(0, 110, 255);
 }
 .carousel{
 }

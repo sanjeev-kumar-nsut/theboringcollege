@@ -1,0 +1,41 @@
+.footer{
+    width:100%;
+    height: 50vh;
+    background-color: black;
+    color: white;
+}
+.footer .row{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 4rem;;
+}
+.quicklinks{
+    margin-left:5rem;
+    padding-left: 2rem;
+    width:auto;
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.quicklinks h1,a{
+    color:white;
+}
+.mail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.mail h2{
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+.copyright{
+    margin-top:4rem;
+}
+.copyright h2{
+    font-size: 1rem;
+    margin-left:25rem;
+}

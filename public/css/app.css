@@ -4,7 +4,7 @@ body{
     background-repeat: no-repeat;
     background-size:cover;
     font-family: 'Merriweather', serif;
-    background-attachment: fixed;
+    background-attachment:fixed;
 }
 
 .navbar-fixed-top.scrolled {
@@ -16,13 +16,11 @@ body{
    
    margin-bottom: 0.5rem;
    font-family: 'Merriweather', serif;
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   align-items:center;
+   
   }
   .navbarContent{
       font-family: 'Merriweather', serif;
+      color:aqua;
   }
   .logo{
      height:5rem;
